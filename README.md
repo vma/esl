@@ -53,7 +53,8 @@ func (h *Handler) OnConnect(con *esl.Connection) {
         con.SendRecv("event", "plain", "ALL")
         h.CallId, _ = con.Api("create_uuid")
         log.Println("call id:", h.CallId)
-        h.BgJobId, _ = con.BgApi("originate", "{origination_uuid="+h.CallId+",origination_caller_id_number="+Caller+"}sofia/gateway/provider/"+Callee, "&park()")
+        h.BgJobId, _ = con.BgApi("originate", "{origination_uuid="+h.CallId+
+                ",origination_caller_id_number="+Caller+"}sofia/gateway/provider/"+Callee, "&park()")
         log.Println("originate bg job id:", h.BgJobId)
 }
 
