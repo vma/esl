@@ -86,7 +86,7 @@ func (h *Handler) OnEvent(con *esl.Connection, ev *esl.Event) {
 
 **TODO**
 
-[] add documentation
-[] add tests
-[] more usage examples
+- [ ] add documentation
+- [ ] add tests
+- [ ] more usage examples
 
