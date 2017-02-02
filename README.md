@@ -10,7 +10,7 @@ Installation can be done as usual:
 $ go get github.com/vma/esl
 ```
 
-** How it works**
+**How it works**
 
 `esl.NewConnection` create a new esl connection and take a `ConnectionHandler` interface
 which defines the callbacks to handle the esl events.
