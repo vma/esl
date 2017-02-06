@@ -36,8 +36,6 @@ type Connection struct {
 	UserData   interface{}
 }
 
-const BUFSIZ = 16 * 1024
-
 func NewConnection(host string, handler ConnectionHandler) (*Connection, error) {
 	con := Connection{
 		Address:  host,
@@ -164,7 +162,7 @@ func (con *Connection) ConnectRetry(MaxRetries int) error {
 			break
 		}
 	}
-	con.buffer = bufio.NewReadWriter(bufio.NewReaderSize(con.socket, BUFSIZ),
+	con.buffer = bufio.NewReadWriter(bufio.NewReaderSize(con.socket, 16*1024),
 		bufio.NewWriter(con.socket))
 	return con.Authenticate()
 }
