@@ -139,10 +139,11 @@ func (con *Connection) Execute(app string, uuid string, params ...string) (*Even
 	return cmd.Execute(con)
 }
 
-func (con *Connection) ExecuteSync(app string, params ...string) (*Event, error) {
+func (con *Connection) ExecuteSync(app string, uuid string, params ...string) (*Event, error) {
 	args := strings.Join(params, " ")
 	cmd := Command{
 		Sync: true,
+		UId:  uuid,
 		App:  app,
 		Args: args,
 	}
