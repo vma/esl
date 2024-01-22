@@ -36,10 +36,10 @@ type Connection struct {
 	UserData   interface{}
 }
 
-func NewConnection(host string, handler ConnectionHandler) (*Connection, error) {
+func NewConnection(host string, password string, handler ConnectionHandler) (*Connection, error) {
 	con := Connection{
 		Address:  host,
-		Password: "ClueCon",
+		Password: password,
 		Timeout:  3 * time.Second,
 		Handler:  handler,
 	}
